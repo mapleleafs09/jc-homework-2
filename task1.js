@@ -1,19 +1,24 @@
-const result = [ ]
+const result = [ ];
 let num = 2;
 let i = 0;
 function number(n) {
     while (i <= n - 1) {
-        if (num % 2 !== 0 && num % 3 !== 0 ) { 
-            result[i] = num; 
+        let count = 0;
+        for (let check = 1; check <= num; check++) {
+            if (num % check === 0) {
+                count++;
+                console.log(num,'делится без остатка на', check);
+            };         
+        } ;
+        console.log(num, 'пделилось без остатка раз=' , count);
+        if (count <=2) {
+            console.log('добавляем в массив', num);
+            result.push(num);
             i++;
-        } else if (num == 2 || num == 3) {
-            result[i] = num;
-            i++;
-        }
-        num ++;
-    } 
+        };   
+        num++;
+    };
     return result
 }
-
 
 console.log(number(process.argv[2]))
