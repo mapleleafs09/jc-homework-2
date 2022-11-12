@@ -87,13 +87,15 @@ function delAll() {
     cart.length = 0;
 };
 
-const total = { totalAmount: 0, totalSumm: 0 };
+
 
 function totalCalc() {
+    var total = { totalAmount: 0, totalSumm: 0 };
     for (let position of cart) {
         total.totalSumm = total.totalSumm + (goods[position.good].price * position.amount);
         total.totalAmount = total.totalAmount + position.amount;
     };
+    return total
 };
 
 console.log(cart)
@@ -108,4 +110,4 @@ console.log(cart)
 
 totalCalc()
 
-console.log(total)
+console.log(totalCalc())
